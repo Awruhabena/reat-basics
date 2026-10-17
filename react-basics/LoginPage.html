@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+    
+<html>
+    <head>
+        <title>React Basics</title>
+        <style>
+            :root {
+                --primary: #274C76;
+                --primary-dark: #1F3C5E;
+                --primary-light: #355D85;
+                --text-heading: #1F3C5E;
+                --text-body: #696A6B;
+                --border: #696A6B;
+                --border-soft: #CDD0D1;
+                --background: #EFF7FF;
+                --surface: #FFFFFF;
+                --text-on-primary: #FFFFFF;
+                --error: #B3261E;
+                --font: "Segoe UI", Arial, sans-serif;
+                --divider: #E0E0E0;
+            }
+
+            * { box-sizing: border-box; }
+
+            body {
+                margin:0;
+                font-family: var(--font);
+                background-color: var(--background);
+                color: var(--text-body);
+            } 
+
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 20px;
+            }
+
+            .logo-text {
+                font-size: 24px;
+                font-weight: bold;
+                color: var(--primary);
+                
+
+            }
+
+            .logo-image {
+                height: 80px;
+                width: 80px;
+            }
+
+            .btn {
+                background-color: var(--primary);
+                color: var(--text-on-primary);
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                font-size: 14px;
+                border-radius: 8px;
+                
+
+            }
+
+            .btn:hover {
+                background-color: var(--primary-dark);
+                transition: background-color 0.3s;
+            }
+
+            .login-container {
+                background-color: var(--surface);
+                padding: 40px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                max-width: 400px;
+                flex: 3;
+            
+            }
+
+            .login-text {
+                font-size: 40px;
+                font-weight: bold;
+                color: var(--text-heading);
+            }
+
+            .login-subtext {
+                font-size: 16px;
+                color: var(--text-body);
+                margin-bottom: 20px;
+            }
+           
+            
+
+            .form-label {
+                font-size: 14px;
+                color: var(--text-body);
+                font-weight: 600px;
+                
+            }
+
+
+            .field input{
+                width: 100%;
+                padding: 2px;
+                border-radius: 4px;
+                border: none;
+                border-bottom: 2px solid var(--primary);
+                
+                
+            }
+            .field input:focus-visible {
+                outline: none;
+
+            }
+
+            .error-message {
+                color: var(--error);
+                font-size: 12px;
+                margin-top: 4px;
+                
+            }
+
+
+
+            .forgot-password {
+                font-size: 14px;
+                color: var(--primary);
+                text-align: right;
+                margin-top: 10px;
+            }
+            .forgot-password:hover {
+                cursor: pointer;
+            }
+
+            .image-container {
+                flex: 2;
+                min-width: 0;        
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .image-container img {
+                width: 100%;    
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .app-container {
+                display: flex;
+                align-items: center;
+                padding: 50px;
+    
+      
+            }
+
+            .form-container {
+                max-width: 400px;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+
+            }
+
+
+           
+
+        </style>
+    </head>
+    <body>
+        <div class="js-container"></div>
+
+        <script src="https://unpkg.com/supersimpledev/react.js"></script>
+        <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+        <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+        <script type="text/babel">
+ 
+
+         
+
+           function Header(){
+              return(
+                <div className = 'logo'> 
+                    <img src="GHIPSS-removebg.png" alt="GHIPSS Logo" width="447" height="447" className="logo-image" />
+                    <span className="logo-text">GHIPSS</span> 
+               </div>
+              )
+           }
+
+           function LoginForm(){
+             return(
+                    <div className = 'login-container'>
+                        <h1 className="login-text">Login</h1>
+                        <p className="login-subtext">Welcome back! Please enter your credentials to log in.</p>
+                        <form className = 'form-container'>
+                            <div className ="field">
+                                <label htmlFor="email" className="form-label">Email</label>
+                                <input type="email" placeholder="janedoe@gmail.com" id="email" name="email" required />
+                                <p id="email-error" className="error-message"></p>
+                            </div>
+                    
+                            <div className = "field">
+                                <label htmlFor="password" className ="form-label">Password</label>
+                                <input type="password" placeholder="Enter your password" id="password" name="password" required />
+                                <p id="password-error" className ="error-message"></p>
+                            </div>
+                            <p className ="forgot-password"><a href="#">Forgot Password?</a></p>
+
+                    
+                            <button type="submit" className ="btn">Log In</button>
+                       </form>
+                    </div>
+                )
+            }
+
+            function Illustration(){
+                return(
+                    <div className = 'image-container'>
+                        <img src="Hero Image.webp" alt="illustion" width="1200" height="896" className="illustion-image" />
+                    </div>
+                )
+                
+            }
+
+
+           function App (){
+              return(
+                   <>
+                     <Header />
+                     <div className = 'app-container'>
+                          <LoginForm />
+                          <Illustration /> 
+                     </div>
+                    </>
+
+                )
+            }
+
+
+
+         const container = document.querySelector('.js-container');
+         const root = ReactDOM.createRoot(container);
+         root.render(<App />);
+
+    
+
+        </script>
+    </body>
+</html>

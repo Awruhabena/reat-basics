@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    <script>
+        console.log(`Hello`)
+    </script>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script> 
+    <script type="text/babel">
+      /*const socks = 10;
+      const tshirt = 8;
+      const productCost = socks + tshirt;
+      console.log(productCost);
+      const shippingCost = 5;
+      const totalCost = productCost + shippingCost;
+      const date = dayjs().format('MMMM D');
+      console.log(date);
+      const time = dayjs().format('HH:mm:ss')
+      const div = (
+        <div>
+          <p>Current Time: {time}</p>
+        </div>
+      )*/
+      
+      
+      
+
+      /*const div = (
+        <div>
+          <button> Good Job!</button>
+          <p>My name is Lily</p>  
+
+          <p>Cotton Socks</p>
+          <p>Price:$10</p>
+          <button>Add to Cart</button>
+
+          <p>Product Cost: $ {productCost}</p>
+          <p>Shipping Cost: $ {shippingCost}</p>
+          <p>Totl Cost: $ {totalCost}</p>
+          <button>Place Order</button>
+          <p>Today is {date}</p>
+          <p>Current Time: {time}</p>
+          
+           
+        </div>
+        
+      );*/
+      
+      function LoginForm (){
+
+        return(
+          <>
+            <div>
+              <input placeholder = "Email"></input>
+           </div>
+           <div>
+              <input placeholder = "Password" type = "password"></input>
+           </div>
+           
+           <button>Login</button>
+           <button>Sign Up</button>
+          </>
+          
+
+        )
+      }
+
+
+      function App(){
+        return(
+          <>
+           <p>Hello, Welcome to my website</p>
+            <LoginForm />
+           
+          </>
+          
+        )
+      }
+
+      
+      
+      
+      const container = document.querySelector('.js-container');
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />);
+
+      /*setInterval(() => {
+       const time = dayjs().format('HH:mm:ss')
+       const div = 
+        <div>
+          <p>Current Time: {time}</p>
+        </div>
+      },1000
+    );*/
+      
+    </script>
+  </body>
+</html>
