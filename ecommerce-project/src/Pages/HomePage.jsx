@@ -5,6 +5,8 @@ import './HomePage.css'
 
 
 function HomePage() {
+    fetch('http://localhost:3000/api/products')
+    
     return (
         <>
 
